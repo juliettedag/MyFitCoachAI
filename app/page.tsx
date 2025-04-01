@@ -10,7 +10,7 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState("Coach");
   const [lang, setLang] = useState("en");
   const [lastAction, setLastAction] = useState<string | null>(null);
-  const tabs = ["Coach", "Progrès", "Repas", "Objectifs"];
+  const tabs = ["Coach", "Progrès", "Repas", "Objectifs",];
 
   useEffect(() => {
     const onDataUpdate = (e: any) => {
