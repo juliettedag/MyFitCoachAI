@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import { getStorage } from "@/lib/storage";
-import { translations } from "@/lib/translations";
+import { getStorage } from "../lib/storage";
+import { translations } from "../lib/translations";
 import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 
