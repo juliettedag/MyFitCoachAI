@@ -1,10 +1,6 @@
 // app/layout.tsx
-import "../globals.css";
-
-export const metadata = {
-  title: "MyFitCoach.AI",
-  description: "Votre coach fitness intelligent",
-};
+import "../styles/globals.css";
+import { ReactNode } from "react";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
