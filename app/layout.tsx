@@ -6,14 +6,10 @@ export const metadata = {
   description: "Votre coach fitness intelligent",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="fr">
-      <body className="font-inter bg-gray-50 text-gray-800">{children}</body>
+    <html lang="en">
+      <body>{children}</body>
     </html>
   );
 }
