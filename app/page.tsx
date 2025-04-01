@@ -1,11 +1,11 @@
 // app/page.tsx
 "use client";
 import { useState, useEffect } from "react";
-import CoachTab from "@/components/CoachTab";
-import ProgressTab from "@/components/ProgressTab";
-import MealsTab from "@/components/MealsTab";
-import GoalsTab from "@/components/GoalsTab";
-import { translations } from "@/lib/translations";
+import CoachTab from "../components/CoachTab";
+import ProgressTab from "../components/ProgressTab";
+import MealsTab from "../components/MealsTab";
+import GoalsTab from "../components/GoalsTab";
+import { translations } from "../lib/translations";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("Coach");
@@ -63,5 +63,3 @@ export default function Home() {
     </div>
   );
 }
-
-
