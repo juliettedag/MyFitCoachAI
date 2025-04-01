@@ -1,3 +1,4 @@
+// components/CoachTab.tsx
 "use client";
 import { useState } from "react";
 import { updateStorage, getStorage } from "@/lib/storage";
@@ -12,11 +13,13 @@ const CoachTab = ({ lang }: { lang: string }) => {
     const newMsg = { user: input };
     setMessages((prev) => [...prev, newMsg]);
 
+    const apiKey = process.env.OPENAI_API_KEY;
+
     try {
       const res = await fetch("https://api.openai.com/v1/chat/completions", {
         method: "POST",
         headers: {
-          Authorization: `Bearer sk-XXXX`, // 🛑 NE PAS mettre ta clé directement ici !
+          Authorization: `Bearer ${apiKey}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
@@ -25,13 +28,13 @@ const CoachTab = ({ lang }: { lang: string }) => {
           max_tokens: 100,
         }),
       });
+
       const data = await res.json();
       const reply = data.choices?.[0]?.message?.content || "🤖 ...";
       const updatedMessages = [...messages, newMsg, { bot: reply }];
       setMessages(updatedMessages);
       updateStorage("chatMessages", updatedMessages);
 
-      // Analyse du message pour déduire les actions à enregistrer
       const lower = input.toLowerCase();
 
       if (lower.includes("mangé")) {
@@ -51,7 +54,10 @@ const CoachTab = ({ lang }: { lang: string }) => {
       } else if (lower.includes("pèse")) {
         const weight = parseFloat(input.match(/\d+(\.\d+)?/)?.[0] || "0");
         updateStorage("progress", {
-          weight: [...(getStorage("progress", { weight: [] }).weight || []), { value: weight, date: Date.now() }],
+          weight: [
+            ...(getStorage("progress", { weight: [] }).weight || []),
+            { value: weight, date: Date.now() },
+          ],
         });
         updateStorage("fitnessGoals", { currentWeight: weight });
         setMessages((prev) => [
