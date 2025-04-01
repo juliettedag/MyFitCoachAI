@@ -38,7 +38,7 @@ export default function Home() {
 
       {lastAction && (
         <div className="text-center mt-2 text-green-600 font-medium font-inter transition-all">
-          {lastAction}
+          {lastAction} {/* déclenche rebuild */}
         </div>
       )}
 
