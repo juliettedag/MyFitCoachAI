@@ -1,8 +1,8 @@
 // components/CoachTab.tsx
 "use client";
 import { useState } from "react";
-import { updateStorage, getStorage } from "@/lib/storage";
-import { translations } from "@/lib/translations";
+import { updateStorage, getStorage } from "/lib/storage";
+import { translations } from "../lib/translations";
 
 const CoachTab = ({ lang }: { lang: string }) => {
   const [messages, setMessages] = useState(getStorage("chatMessages", []));
