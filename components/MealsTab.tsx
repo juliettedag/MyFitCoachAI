@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
-import { getStorage } from "@/lib/storage";
-import { translations } from "@/lib/translations";
+import { getStorage } from "../lib/storage";
+import { translations } from "../lib/translations";
 
 const MealsTab = ({ lang }: { lang: string }) => {
   const [meals, setMeals] = useState(getStorage("meals", {}));
