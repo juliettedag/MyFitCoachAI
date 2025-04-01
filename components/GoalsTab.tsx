@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { getStorage, updateStorage } from "@/lib/storage";
-import { translations } from "@/lib/translations";
+import { getStorage, updateStorage } from "../lib/storage";
+import { translations } from "../lib/translations";
 
 const GoalsTab = ({ lang }: { lang: string }) => {
   const [profile, setProfile] = useState(
