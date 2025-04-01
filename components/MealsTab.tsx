@@ -1,4 +1,3 @@
-// components/MealsTab.tsx
 import { useState, useEffect } from "react";
 import { getStorage } from "../lib/storage";
 import { translations } from "../lib/translations";
@@ -43,7 +42,7 @@ const MealsTab = ({ lang }: { lang: string }) => {
         })
         .catch(() => setDailyFeedback(translations[lang].messageProcessError));
     }
-  }, [meals, lang]);
+  }, [meals, lang]); // ← cette accolade est cruciale ici
 
   return (
     <div className="p-4">
@@ -62,7 +61,9 @@ const MealsTab = ({ lang }: { lang: string }) => {
           <tbody>
             {Object.values(meals).map((meal: any, i: number) => (
               <tr key={i} className="border-b">
-                <td className="p-2 font-inter">{new Date(meal.timestamp).toLocaleDateString()}</td>
+                <td className="p-2 font-inter">
+                  {new Date(meal.timestamp).toLocaleDateString()}
+                </td>
                 <td className="p-2 font-inter">{meal.name}</td>
                 <td className="p-2 font-inter">{meal.calories} cal</td>
               </tr>
